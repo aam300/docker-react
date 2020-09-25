@@ -1,0 +1,12 @@
+#Specify a base image
+FROM node:alpine
+
+WORKDIR '/app'
+# only bulid the image if there is chang in package json file */
+COPY package.json .
+# install Dependices 
+RUN npm install
+# takes public directory (src) and copy into WORKDIR = app folder
+COPY . .
+# starting server Default command
+CMD [ "npm", "run", "start" ]

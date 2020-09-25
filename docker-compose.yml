@@ -1,0 +1,33 @@
+# version of docker compose
+version:  '3'
+# type container
+services: 
+    #name the ervice
+    web:
+        # fixing issue exited with code 0 while bulding by adding the follwoing
+        stdin_open: true
+        # in windows usinf enviroment variable to detect changes
+        environment: 
+            - CHOKIDAR_USEPOLLING=true
+        build: 
+            # not having dockerfile useing custom name
+            context: .
+            dockerfile: Dockerfile.dev
+        ports: 
+            - "3000:3000"
+        volumes: 
+            #stay inside the container and use node_mod
+            - /app/node_modules
+            # . is to map outside the container for changes
+            - .:/app
+    tests:
+        build: 
+            # not having dockerfile useing custom name
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes: 
+            #stay inside the container and use node_mod
+             - /app/node_modules
+             # . is to map outside the container for changes
+             - .:/app
+        command: ["npm", "run", "test"]
