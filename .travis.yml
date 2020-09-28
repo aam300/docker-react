@@ -20,6 +20,7 @@ deploy:
     # defining S3 bucket which will store the Zip file then EB will Poke 
     bucket_name: "elasticbeanstalk-us-east-1-138392944993"
     buck_path: "docker-react"
+    skip_cleanup: true
     # only Deply once the code is pushed to master branch
     on:
         branch: master
