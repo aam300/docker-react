@@ -10,3 +10,19 @@ before_install:
 # adding scripts 
 scripts:
     - docker run -e CI=true aam300/docker-react npm run test
+
+#deploy to AWS Elasticbeanstalk
+deploy:
+    provider: elasticbeanstalk 
+    region: "us-east-1"
+    app: "docker-react"
+    env: "DockerReact-env"
+    # defining S3 bucket which will store the Zip file then EB will Poke 
+    bucket_name: "elasticbeanstalk-us-east-1-138392944993"
+    buck_path: "docker-react"
+    # only Deply once the code is pushed to master branch
+    on:
+        branch: master
+    # PRVIDING USER ACESS KEY FOR 
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
