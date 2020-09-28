@@ -10,7 +10,7 @@ RUN npm install
 COPY . .
 # using run command to build
 RUN npm run build 
-RUN npm run test
+
 # 2. Run Phase using Ngnix
 # From here meaning pervious block all complted new started 
 FROM nginx
