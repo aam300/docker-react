@@ -5,7 +5,7 @@ services:
 
 # before install creating a image to run on travis
 before_install:
-    - docker build -t aam300/docker-react -f dockerfile.dev .
+    - docker build -t aam300/docker-react -f Dockerfile.dev .
 
 # adding scripts 
 scripts:
