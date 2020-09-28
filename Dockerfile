@@ -14,5 +14,7 @@ RUN npm run build
 # 2. Run Phase using Ngnix
 # From here meaning pervious block all complted new started 
 FROM nginx
+#exposing port 80 for AWS
+EXPOSE 80
 # copying over files needed from build Phase
 COPY --from=builder /app/build /usr/share/nginx/html
