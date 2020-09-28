@@ -3,7 +3,7 @@
 FROM node:alpine as builder 
 WORKDIR '/app'
 # only bulid the image if there is chang in package json file */
-COPY package.json .
+COPY package*.json ./
 # install Dependices 
 RUN npm install
 # takes public directory (src) and copy into WORKDIR = app folder
