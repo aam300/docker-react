@@ -1,0 +1,12 @@
+sudo: required
+# services
+services:
+    - docker
+
+# before install creating a image to run on travis
+before_install:
+    - docker build -t aam300/docker-react -f Dockerfile.dev .
+
+# adding scripts 
+scripts:
+    - docker run -e CI=true aam300/docker-react npm run test
