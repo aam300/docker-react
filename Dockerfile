@@ -1,6 +1,6 @@
 # Multistep build pahse # multi stage
 #1. build phase using AS to tag the stage name bulider phase
-FROM node:alpine as builder 
+FROM node:alpine 
 WORKDIR '/app'
 # only bulid the image if there is chang in package json file */
 COPY package*.json ./
@@ -17,4 +17,4 @@ FROM nginx
 #exposing port 80 for AWS
 EXPOSE 80
 # copying over files needed from build Phase
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
