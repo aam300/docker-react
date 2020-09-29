@@ -11,10 +11,10 @@ function App() {
           Welcome to Docker test World. Created by Attiq.
         </p>
         <a
-         // className="App-link"
-         // href="https://reactjs.org"
-         // target="_blank"
-         // rel="noopener noreferrer"
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           More to come
         </a>
